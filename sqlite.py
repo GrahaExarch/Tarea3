@@ -22,7 +22,7 @@ c.execute(""" CREATE TABLE IF NOT EXISTS Location (
 
 c.execute(""" CREATE TABLE IF NOT EXISTS Sensor (
     location_id INTEGER PRIMARY KEY,
-    sensor_id Integer NOT NULL,
+    sensor_id INTEGER NOT NULL,
     sensor_name TEXT NOT NULL,
     sensor_category TEXT NOT NULL,
     sensor_meta TEXT NOT NULL,
