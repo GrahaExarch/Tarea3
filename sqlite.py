@@ -1,3 +1,4 @@
+#Creacion de tablas
 import sqlite3
 
 conn = sqlite3.connect('BD.db')
