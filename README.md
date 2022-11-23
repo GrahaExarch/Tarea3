@@ -3,6 +3,7 @@ version de node Javier-> 12.22.12
 
 Correr: 
       npm install para instalar dependencias
+      
 SQLite:      
       npm install sqlite3
 
