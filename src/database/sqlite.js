@@ -11,10 +11,36 @@ db.serialize(function() {
 
     // Insert data into the table
     db.run("INSERT INTO Foo (name) VALUES ('bar')");
+    //Examples
+    /* db.run("INSERT INTO Admin (Username, Password) VALUES ('User', 'Contraseña')");
+    db.run("INSERT INTO Company (ID, company_name, company_api_key) VALUES (7, 'METFLIX', 'llave')");
+    db.run("INSERT INTO Location (company_id, location_name, location_country, location_city, location_meta) VALUES (7,'local', 'Chile', 'Santiago', 'meta')");
+    db.run("INSERT INTO Sensor (location_id, sensor_id, sensor_name, sensor_category, sensor_meta, sensor_api_key) VALUES (10, 2, 1, 'Sensor1', 'Temperatura', 'meta', 'keys1')");
+    */
 
     // Query data from the table
     db.each("SELECT id, name FROM Foo", function(err, row) {
         console.log(row.id + ": " + row.name);
     });
+    //Example (print Tables) (GET)
+    /*  db.each("SELECT * FROM Location", function(err, row) {
+        rows.forEach(function(row) {
+            console.log(row.company_id + "," + row.location_name + "," + row.location_country + "," + row.location_city + "," +
+                row.location_meta);
+        });
+    });
+
+    db.each("SELECT * FROM Sensor", function(err, row) {
+        rows.forEach(function(row) {
+            console.log(row.location_id + "," + row.sensor_id + "," + row.sensor_name + "," + row.sensor_category + "," +
+                row.sensor_meta + "," + row.sensor_api_key);
+        });
+    });
+*/
+
+
 });
+
+
+
 db.close();
