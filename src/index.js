@@ -12,7 +12,9 @@ app.use(morgan('dev'));
 //Rutas
 app.use(require('./routes/index'));
 app.use('/api/admin', require('./routes/admin'));
-
+app.use('/api/company', require('./routes/company'));
+app.use('/api/location', require('./routes/location'));
+app.use('/api/sensor', require('./routes/sensor'));
 
 
 app.listen(app.get('port'),()=>{

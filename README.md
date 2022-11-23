@@ -9,8 +9,14 @@ SQLite:
 
 Tutorial fruna
 
-https://platzi.com/clases/2485-backend-nodejs/41746-routing-con-expressjs/
-https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/
-https://asfo.medium.com/desarrollando-una-sencilla-api-rest-con-nodejs-y-express-cab0813f7e4b
-https://lightrun.com/node-js-sqlite-tutorial/
-https://github.com/TryGhost/node-sqlite3/wiki/API
+https://platzi.com/clases/2485-backend-nodejs/41746-routing-con-expressjs/ \n
+
+https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/ \n
+
+https://asfo.medium.com/desarrollando-una-sencilla-api-rest-con-nodejs-y-express-cab0813f7e4b \n
+
+https://lightrun.com/node-js-sqlite-tutorial/ \n
+
+https://github.com/TryGhost/node-sqlite3/wiki/API \n
+
+https://github.com/GeaSmart/ApiRestNode \n
