@@ -21,6 +21,6 @@ https://lightrun.com/node-js-sqlite-tutorial/
 
 https://github.com/TryGhost/node-sqlite3/wiki/API 
 
-https://www.codecademy.com/learn/building-a-persistent-api/modules/learn-node-sqlite-module/cheatsheet
+Comandos https://www.codecademy.com/learn/building-a-persistent-api/modules/learn-node-sqlite-module/cheatsheet
 
 https://github.com/GeaSmart/ApiRestNode 
