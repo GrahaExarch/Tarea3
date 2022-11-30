@@ -1,14 +1,29 @@
 const express = require('express');
+const sqlite3 = require('sqlite3');
+
+const database = new sqlite3.Database('./src/database/BD.sqlite',sqlite3.OPEN_READWRITE, (err) =>{
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Conectado a la Base de Datos SQLite3.');
+});
 
 const router = express.Router();
 
-router.get('/', (req,res) => {
-  const nombre = "javier";
-  const apellido = "ramos";
 
-  res.json({
-    name: nombre,
-    lastname: apellido
+router.get('/', (req,res) => {
+  let sql = 'SELECT * FROM admin';
+  database.serialize(() => {
+    database.all(sql, (err, rows) => {
+      if (err) {
+        res.status(500).json({ "error": err.message });
+      }
+      res.json({
+        texto: 'uwu',
+        datos: rows,
+
+      });
+    });
   });
 });
 
@@ -46,4 +61,7 @@ res.json({
 });
 })
 
+
 module.exports = router;
+
+
