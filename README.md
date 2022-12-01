@@ -24,3 +24,4 @@ https://github.com/TryGhost/node-sqlite3/wiki/API
 Comandos https://www.codecademy.com/learn/building-a-persistent-api/modules/learn-node-sqlite-module/cheatsheet
 
 https://github.com/GeaSmart/ApiRestNode 
+.
