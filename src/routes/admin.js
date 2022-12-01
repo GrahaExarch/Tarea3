@@ -4,7 +4,7 @@ const db = require('../db');
 const router = express.Router();
 
 
-router.get('/', (req,res) => {
+router.get('/', async (req,res) => {
   let sql = 'SELECT * FROM admin';
   db.serialize(() => {
     db.all(sql, (err, rows) => {
@@ -14,7 +14,6 @@ router.get('/', (req,res) => {
       res.json({
         texto: 'uwu',
         datos: rows,
-
       });
     });
   });

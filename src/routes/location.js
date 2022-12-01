@@ -7,7 +7,17 @@ router.get('/', (req, res) => {
 });
 
 router.get('/all', (req, res) => {
-  res.json({"titulo": "estas viendo  get"});
+  let sql = 'SELECT * FROM location'
+  db.serialize(()=>{
+    db.all(sql, (err,rows)=>{
+      if(err){
+        res.status(500).json({"error":err.message})
+      }
+      res.json({
+        datos:rows,
+      });
+    });
+  });
 });
 
 router.post('/', (req, res) => {
