@@ -1,8 +1,6 @@
 const express = require('express');
 const db = require('../db');
 
-
-
 const router = express.Router();
 
 
@@ -24,10 +22,18 @@ router.get('/', (req,res) => {
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  res.json({
-    "titulo": "estas viendo get",
-    "id": id
-  });
+  let sql = 'select * FROM admin WHERE Username = ?'
+  db.serialize(()=>{
+    db.all(sql, [id], (err, rows)=>{
+      if(err) {
+        res.status(500).json({"error":err.message});
+      }
+      res.json({
+          texto: "estas viendo get",
+          datos: rows,
+      });
+    });
+  }); 
 });
 
 router.post('/', (req, res) => {
