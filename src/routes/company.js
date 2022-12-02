@@ -3,9 +3,10 @@ const router = Router();
 const db = require('../db');
 
 
-router.get('/all', (req, res) => {
-  let sql = 'select * from company';
-  db.all(sql, (err, rows) =>{
+router.get('/:id', (req,res)=>{
+  const id = req.params.id;
+  const sql = 'select * from company where company_api_key = ?';
+  db.all(sql, [id], (err, rows) =>{
     if(err){
       res.status(500).json({"error":err.message});
     }
@@ -15,12 +16,23 @@ router.get('/all', (req, res) => {
   });
 });
 
+router.get('/', async (req, res) => {
+  const sql = 'select * from company';
+  await db.all(sql, (err, rows) =>{
+    if(err){
+      res.status(500).json({"error":err.message});
+    }
+    console.log(rows);
+    res.json({
+      datos:rows,
+    });
+  });
+});
 
-
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const {id, name, key} = req.query;
-  let sql = 'INSERT INTO company VALUES (?,?,?)';
-  db.run(sql, [id,name,key], err =>{
+  const sql = 'INSERT INTO company VALUES (?,?,?)';
+  await db.run(sql, [id,name,key], err =>{
     if(err){
       res.status(500).json({ "error": err.message });
     }
@@ -33,7 +45,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id;
   const name = req.query.name;
-  let sql = 'update company set company_name = ? where company_id = ?'
+  const sql = 'update company set company_name = ? where company_id = ?'
   console.log(id);
   db.run(sql, [name,id], err =>{
     if(err){
@@ -44,9 +56,10 @@ router.put('/:id', (req, res) => {
     });
   });
 });
+
 router.delete('/', (req, res) => {
   const id = req.query.id;
-  let sql = 'delete from company where company_id = ?'
+  const sql = 'delete from company where company_id = ?'
   db.run(sql, [id], err =>{
     if(err){
       res.status(500).json({"error": err.message});
