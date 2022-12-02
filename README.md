@@ -1,7 +1,4 @@
 # Tarea3
-version de node Javier-> 12.22.12
-
-node -v (version)
 
 Correr: 
       npm install para instalar dependencias
