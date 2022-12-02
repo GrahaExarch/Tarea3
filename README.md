@@ -9,6 +9,8 @@ Correr:
 SQLite:      
       npm install sqlite3
 
+*BD con 25 registros en cada tabla      
+
 Tutorial fruna
 
 https://platzi.com/clases/2485-backend-nodejs/41746-routing-con-expressjs/ 
