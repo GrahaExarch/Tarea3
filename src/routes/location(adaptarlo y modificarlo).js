@@ -2,10 +2,10 @@ const { Router } = require('express');
 const router = Router();
 const db = require('../db');
 
-router.get('/:company_id', (req, res) => {
-    const company_id = req.params.company_id
-    const sql = 'select * FROM location where company_id = ?';
-    db.all(sql, [company_id], (err, rows) => {
+router.get('/:location_name', (req, res) => {
+    const location_name = req.params.location_name
+    const sql = 'select * FROM location where location_name = ?';
+    db.all(sql, [location_name], (err, rows) => {
         if (err) {
             res.status(500).json({ "error": err.message });
         }
