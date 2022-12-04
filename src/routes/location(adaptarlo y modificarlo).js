@@ -31,7 +31,7 @@ router.get('/', async(req, res) => {
 
 router.post('/', async(req, res) => {
     const { company_id, location_name, location_country, location_city, location_meta } = req.query;
-    const sql = 'INSERT INTO location VALUES (?,?,?)';
+    const sql = 'INSERT INTO location VALUES (?,?,?,?,?)';
     await db.run(sql, [company_id, location_name, location_country, location_city, location_meta], err => {
         if (err) {
             res.status(500).json({ "error": err.message });
