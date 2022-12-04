@@ -1,7 +1,7 @@
-const express = require('express');
+const { Router, request } = require('express');
 const db = require('../db');
-
-const router = express.Router();
+const router = Router();
+const { v4: uuidv4 } = require('uuid');
 
 
 router.get('/', async (req,res) => {
@@ -12,7 +12,6 @@ router.get('/', async (req,res) => {
         res.status(500).json({ "error": err.message });
       }
       res.json({
-        texto: 'uwu',
         datos: rows,
       });
     });
@@ -21,28 +20,29 @@ router.get('/', async (req,res) => {
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  let sql = 'select * FROM admin WHERE Username = ?'
-  db.serialize(()=>{
-    db.all(sql, [id], (err, rows)=>{
-      if(err) {
-        res.status(500).json({"error":err.message});
-      }
-      res.json({
-          texto: "estas viendo get",
-          datos: rows,
-      });
+  let sql = 'select * from admin where username = ?';
+  db.all(sql, [id], (err, rows)=>{
+    if(err) {
+      res.status(500).json({"error":err.message});
+    }
+    res.json({
+        datos: rows,
     });
-  }); 
+  });
 });
 
-router.post('/', (req, res) => {
-  const data = req.body;
-  if (data) {
-      res.json({"response": "estas viendo post"})
-  }
-  else {
-      res.status(500).json({ "error": "There was an error." });
-  }
+router.post('/create_company', async (req, res) => {
+  const {id, company_name} = req.body;
+  const key = uuidv4();
+  const sql = 'INSERT INTO company VALUES (?,?,?)';
+  await db.run(sql, [id, company_name, key], err =>{
+    if(err){
+      res.status(500).json({ "error": err.message });
+    }
+    res.json({
+      "response": 'Insertada compañia'
+    });
+  });
 });
 
 router.put('/:id', (req, res) => {
@@ -53,14 +53,7 @@ res.json({
 })
 });
 
-router.delete('/:id', (req, res) => {
-const id = req.params.id;
 
-res.json({
-  "response": 'estas viendo delete',
-  "id": id
-});
-})
 
 
 module.exports = router;
