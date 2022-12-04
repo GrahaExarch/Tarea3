@@ -1,28 +1,27 @@
 # Tarea3
 
-Correr: 
-      npm install para instalar dependencias
+Para Correr en local:
+  -Instalar Git y NodeJS.
+  -Descargar el repo.
+  -Entrar a Tarea3/
+  -Correr:
+      $ npm install 
+    para instalar dependencias.
+    Luego correr:
+      $ npm run start
+      o
+      $ npm run dev
       
-SQLite:      
-      npm install sqlite3
 
-*BD con 25 registros en cada tabla      
+La BD contiene por lo menos 25 registros en cada tabla      
 
-Tutorial fruna
+La direccion IP publica del servicio en AWS es:
 
-https://platzi.com/clases/2485-backend-nodejs/41746-routing-con-expressjs/ 
+  52.91.189.73
 
-https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/ 
+La direccion DNS publica es:
 
-https://asfo.medium.com/desarrollando-una-sencilla-api-rest-con-nodejs-y-express-cab0813f7e4b 
+  ec2-52-91-189-73.compute-1.amazonaws.com
 
-https://lightrun.com/node-js-sqlite-tutorial/ 
+a ambos se le debe especificar el puerto 3001 para realizar las consultas.
 
-https://github.com/TryGhost/node-sqlite3/wiki/API 
-
-SQLITE DB Browser: https://sqlitebrowser.org/dl/
-
-Comandos https://www.codecademy.com/learn/building-a-persistent-api/modules/learn-node-sqlite-module/cheatsheet
-
-https://github.com/GeaSmart/ApiRestNode 
-.
