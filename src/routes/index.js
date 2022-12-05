@@ -5,7 +5,12 @@ const db = require('../db');
 router.get('/', (req, res) => {
   res.json(
       {
-          "Rutas": "/api/admin \n /api/company \n /api/location \n /api/sensor \n /api/v1/sensor_data"
+          "Rutas": [
+            "/api/admin",
+            "/api/company",
+            "/api/location",
+            "/api/sensor",
+            "/api/v1/sensor_data"]
       }
   );
 })
