@@ -66,7 +66,7 @@ router.post('/create_location', async (req, res) => {
       res.status(500).json({ "error": err.message });
     }
     res.json({
-      "response": 'Insertada compañia'
+      "response": 'Insertada ubicacion'
     });
   });
 });
