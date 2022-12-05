@@ -15,6 +15,7 @@ app.use('/api/admin', require('./routes/admin'));
 app.use('/api/company', require('./routes/company'));
 app.use('/api/location', require('./routes/location'));
 app.use('/api/sensor', require('./routes/sensor'));
+app.use('/api/v1/sensor_data', require('./routes/sensor_data'));
 
 
 app.listen(app.get('port'),()=>{
