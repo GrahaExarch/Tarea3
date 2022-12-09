@@ -23,7 +23,7 @@ router.post('/', async (req,res)=>{
     let sql2 = 'Select * from sensor where sensor_api_key = ?'
     await db.all(sql2, [key], (err,rows) =>{
         console.log(rows[0]);
-        if(rows[0]){  
+        if(rows[0]){
             db.run(sql, [metrica1,metrica2,sensor_id,metric_description,date,key], err =>{
                 if(err){
                     res.status(500).json({"error":err.message});
