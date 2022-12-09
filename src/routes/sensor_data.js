@@ -3,7 +3,7 @@ const router = Router();
 const db = require('../db');
 
 router.get('/', async (req, res) => {
-    const {company_api_key, from, to, sensor_id} = req.query
+    const {company_api_key, from, to, sensor_id} = req.body
     const sql = 'select * from sensor_data where time > ? and time < ?';
     await db.all(sql, [from,to],(err, rows) =>{
       if(err){
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req,res)=>{
     const date = Date.now();
-    const {metrica1,metrica2,sensor_id,metric_description,key} = req.query;
+    const {metrica1,metrica2,sensor_id,metric_description,key} = req.body;
     let sql = 'INSERT into sensor_data values(?,?,?,?,?,?)'
     let sql2 = 'Select * from sensor where sensor_api_key = ?'
     await db.all(sql2, [key], (err,rows) =>{

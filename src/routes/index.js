@@ -5,7 +5,12 @@ const db = require('../db');
 router.get('/', (req, res) => {
   res.json(
       {
-          "Title": "Hola mundo usando rutas!"
+          "Rutas": [
+            "/api/admin",
+            "/api/company",
+            "/api/location",
+            "/api/sensor",
+            "/api/v1/sensor_data"]
       }
   );
 })
